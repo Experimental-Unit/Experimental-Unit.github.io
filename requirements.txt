@@ -30,5 +30,8 @@ pandas>=2.0.0
 jinja2>=3.1.0
 pyyaml>=6.0.0
 
+# Tools & Agents
+duckduckgo-search>=4.0.0
+
 # Development
 pytest>=7.4.0

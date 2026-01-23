@@ -55,6 +55,9 @@ Open `site/index.html` in a browser, or deploy to GitHub Pages.
 │   ├── glossary.py        # Term extraction
 │   ├── site_generator.py  # Static site builder
 │   └── main.py            # Pipeline orchestration
+├── examples/              # LangChain + Claude examples
+│   ├── basic_chain.py     # Basic LCEL chain (translation)
+│   └── agent_with_tools.py # Agent with web search
 ├── scripts/               # Utility scripts
 │   ├── process_zip.py     # Quick ZIP processing
 │   └── upload_handler.py  # File upload utilities
@@ -113,6 +116,20 @@ pipeline.generate_site(base_url="")
 # Semantic search
 results = pipeline.search("machine learning", k=5)
 ```
+
+## LangChain + Claude Examples
+
+Standalone examples for getting started with LangChain and Claude:
+
+```bash
+# Basic LCEL chain (English to French translation)
+python examples/basic_chain.py
+
+# Agent with web search tools
+python examples/agent_with_tools.py
+```
+
+See [examples/README.md](examples/README.md) for details.
 
 ## Configuration
 
