@@ -5,7 +5,7 @@ import hashlib
 from typing import Optional
 from dataclasses import dataclass, field
 
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 
 from .loader import SubstackPost
