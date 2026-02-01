@@ -10,6 +10,7 @@ A LangChain-powered pipeline to process hundreds of Substack posts into a search
 - 📖 **Glossary Extraction**: Automatically extract and define key terms
 - 🌐 **Static Site**: GitHub Pages-ready site with search functionality
 - 🔄 **Incremental Processing**: Skip already-processed posts
+- 🦞 **OpenClaw Integration**: AI assistant for automated pipeline management
 
 ## Quick Start
 
@@ -164,9 +165,73 @@ processing:
 
 Or use GitHub Actions for automatic deployment.
 
+## OpenClaw Integration
+
+This project includes [OpenClaw](https://openclaw.ai/) integration for AI-assisted pipeline management.
+
+### Setup OpenClaw Locally
+
+```bash
+# Run the setup script
+./scripts/setup_openclaw.sh
+
+# Or install manually
+npm install -g openclaw@latest
+openclaw onboard --install-daemon
+```
+
+### OpenClaw Configuration
+
+Configuration is stored in `openclaw/`:
+
+```
+openclaw/
+├── openclaw.json          # Main configuration
+├── workspace/
+│   ├── AGENTS.md          # Agent personality and capabilities
+│   └── TOOLS.md           # Custom tools documentation
+├── skills/
+│   └── substack-pipeline/ # Custom skill for pipeline integration
+└── logs/                  # Runtime logs
+```
+
+### Using OpenClaw
+
+**Interactive Chat:**
+```bash
+openclaw chat
+```
+
+**Pipeline Commands via OpenClaw:**
+```
+> Load posts from data/raw
+> Generate summaries for all posts
+> Extract glossary terms
+> Build the static site
+> Search for "machine learning"
+```
+
+### GitHub Integration
+
+OpenClaw commands work in GitHub issues and PRs:
+
+- `/openclaw summarize` - Generate AI summaries
+- `/openclaw glossary` - Extract glossary terms
+- `/openclaw search <query>` - Search the archive
+- `/openclaw site` - Generate static site
+- `/openclaw help` - Show available commands
+
+### CI/CD Workflows
+
+The project includes GitHub Actions for:
+
+- **openclaw-ci.yml**: Lint, test, and deploy on push
+- **openclaw-agent.yml**: Handle `/openclaw` commands in issues/PRs
+
 ## Requirements
 
 - Python 3.10+
+- Node.js 22+ (for OpenClaw)
 - Anthropic API key (for summaries/glossary)
 - ~500MB disk space for dependencies
 
