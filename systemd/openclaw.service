@@ -1,0 +1,28 @@
+[Unit]
+Description=OpenClaw AI Assistant
+Documentation=https://docs.openclaw.ai
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/home/%i/openclaw
+ExecStart=/usr/bin/openclaw gateway
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/%i/openclaw/logs/openclaw.log
+StandardError=append:/home/%i/openclaw/logs/openclaw-error.log
+
+# Environment
+Environment=NODE_ENV=production
+EnvironmentFile=-/home/%i/openclaw/.env
+
+# Security hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/%i/openclaw/logs /home/%i/openclaw/data
+
+[Install]
+WantedBy=multi-user.target

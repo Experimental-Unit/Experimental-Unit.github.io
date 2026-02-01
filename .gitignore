@@ -2,38 +2,16 @@
 .env
 .env.local
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-venv/
-env/
-.venv/
+# Logs
+logs/
+*.log
 
-# Vector database
-output/database/chroma/
+# Data
+data/
 
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
+# Node
+node_modules/
 
 # OS
 .DS_Store
 Thumbs.db
-
-# Temporary files
-*.tmp
-*.temp
-*.log
-
-# Jupyter
-.ipynb_checkpoints/
-
-# OpenClaw
-openclaw/logs/
-openclaw/skills/*/node_modules/
-openclaw/skills/*/dist/

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://openclaw.ai/schema/config.json",
+  "agent": {
+    "model": "anthropic/claude-sonnet-4-20250514",
+    "fallback": "anthropic/claude-3-haiku-20240307",
+    "maxTokens": 4096,
+    "temperature": 0.7
+  },
+  "gateway": {
+    "host": "127.0.0.1",
+    "port": 18789,
+    "autoStart": true,
+    "keepAlive": true,
+    "reconnect": {
+      "enabled": true,
+      "maxAttempts": -1,
+      "delay": 5000
+    }
+  },
+  "daemon": {
+    "enabled": true,
+    "autoRestart": true,
+    "healthCheck": {
+      "enabled": true,
+      "interval": 30000
+    }
+  },
+  "channels": {
+    "webchat": {
+      "enabled": true,
+      "port": 18790
+    }
+  },
+  "workspace": {
+    "path": "./workspace"
+  },
+  "logging": {
+    "level": "info",
+    "file": "./logs/openclaw.log",
+    "maxSize": "10MB",
+    "maxFiles": 5
+  }
+}
